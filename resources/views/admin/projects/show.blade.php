@@ -53,6 +53,12 @@
         <li>Linguaggi:<br>{{ $project->languages }}</li>
         <li>Softwares<br>{{ $project->softwares }}</li>
         <li>Autori<br>{{ $project->authors }}</li>
+        <li>Tecnologie
+          <ul class="d-flex gap-2 list-unstyled">
+          @foreach($project->technologies as $technology) 
+            <li>{{ $technology->name }}</li>
+          @endforeach
+        </li>
       </ul>
     </div>
     <div class="container p-4p-4">

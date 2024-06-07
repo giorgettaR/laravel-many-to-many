@@ -60,6 +60,22 @@
           <input type="text" name="image_link" class="form-control" id="image_link" placeholder="..." value="{{ old('image_link', $project->image_link) }}">
         </div>
 
+        <label for="technologies" class="form-label">Tecnologie utilizzate</label>
+        <div class="d-flex gap-2 mb-3">
+
+          @foreach($technologies as $technology) 
+
+              <div class="form-check" id="technologies">
+                <input @checked( in_array($technology->id, old('technologies',[])) )
+                 name="technologies[]" class="form-check-input" type="checkbox" value="{{ $technology->id }}" id="technology-{{$technology->id}}">
+                <label class="form-check-label" for="tag-{{$technology->id}}">
+                  {{ $technology->name }}
+                </label>
+              </div>
+                
+            @endforeach
+        </div>
+        
         <button class="btn btn-primary">Salva Progetto</button>
       </form>
     </div>
