@@ -16,7 +16,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Usando Vite -->
-    @vite(['resources/js/app.js'])
+        @vite(['resources/scss/app.scss', 'resources/js/app.js'])
 </head>
 
 <body>
@@ -35,9 +35,6 @@
                     </div>
                     {{-- config('app.name', 'Laravel') --}}
                 </a>
-                
-                <a href="{{ route('admin.projects.index') }}" class="btn btn-primary">Progetti</a>
-                <a href="{{ route('admin.types.index') }}" class="btn btn-primary">Tipologie progetto</a>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>

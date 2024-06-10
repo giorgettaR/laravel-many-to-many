@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title','Projects')
+@section('title','Types')
 
 @section('content')
 
@@ -9,10 +9,10 @@
     <div class="container">
       <div class="row p-4">
         <div class="col-auto">
-            <h1 class="fs-2">Projects</h1>
+            <h1 class="fs-2">Tecnologie</h1>
         </div>
         <div class="col-auto ms-auto">
-          <a href="{{ route('admin.projects.create') }}" class="btn btn-primary">New Project</a>
+          <a href="{{ route('admin.technologies.create') }}" class="btn btn-primary">Aggiungi tecnologia</a>
         </div>
       </div>
     </div>
@@ -20,32 +20,15 @@
       <table class="table">
   <thead>
     <tr>
-      <th>Titolo</th>
-      <th>Tipologia</th>
-      <th>Descrizione</th>
-      <th>Link GitHub</th>
-      <th>Linguaggi</th>
-      <th>Softwares</th>
-      <th>Autori</th>
+      <th>Nome tecnologia</th>
     </tr>
   </thead>
   <tbody>
-    @foreach ($projects as $project)
+    @foreach ($technologies as $technology)
       <tr>
-        <td>{{ $project->title }}</td>
-        <td>{{ $project->type->name }}</td>
-        <td>{{ $project->description }}</td>
-        <td><a href="{{ $project->repository_link }}">Progetto</a></td>
-        <td>{{ $project->languages }}</td>
-        <td>{{ $project->softwares }}</td>
-        <td>{{ $project->authors }}</td>
+        <td>{{ $technology->name }}</td>
         <td>
-          <a href="{{ route('admin.projects.show', $project ) }}" class="align-middle">
-          Show details
-          </a>
-        </td>
-        <td>
-          <a href="{{ route('admin.projects.edit',$project) }}" class="align-middle">Edit</a>
+          <a href="{{ route('admin.technologies.edit',$technology) }}" class="align-middle">Modifica</a>
         </td>
         <td>
           <!-- Button trigger modal -->
@@ -58,11 +41,11 @@
               <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                   <div class="modal-header justify-content-center">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Vuoi davvero eliminare il progetto?</h1>
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Vuoi davvero eliminare la tecnologia?</h1>
                   </div>
                   <div class="modal-footer d-flex justify-content-center">
                     <button type="button" class="btn btn-outline-success" data-bs-dismiss="modal">Ho cambiato idea</button>
-                    <form action="{{ route('admin.projects.destroy',$project) }}" method="POST">
+                    <form action="{{ route('admin.technologies.destroy',$technology) }}" method="POST">
                       @method('DELETE')
                       @csrf
 
